@@ -1,0 +1,35 @@
+.card {
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  border-radius: 8px;
+}
+
+.poster-img {
+  width: 100%;
+  border-radius: 8px;
+  height: 400px;
+}
+
+.card-content {
+  padding: 10px 15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poster-name {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.view-details-btn {
+  color: #ffffff;
+  background-color: rgb(57, 57, 182);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+  float: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
