@@ -1,20 +1,20 @@
 import './index.css'
 
 const CastCard = ({cast}) => {
-  const {profile_path, original_name, character} = cast
+  const {profilePath, originalName, character} = cast
 
   return (
     <li className="cast-card">
       <img
         className="cast-profile"
         src={
-          profile_path
-            ? `https://image.tmdb.org/t/p/original/${profile_path}`
+          profilePath
+            ? `https://image.tmdb.org/t/p/original/${profilePath}`
             : 'https://www.w3schools.com/howto/img_avatar.png'
         }
-        alt={original_name}
+        alt={originalName}
       />
-      <p className="original-name">{original_name}</p>
+      <p className="original-name">{originalName}</p>
       <p>{character}</p>
     </li>
   )

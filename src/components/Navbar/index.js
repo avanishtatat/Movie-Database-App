@@ -65,7 +65,7 @@ const Navbar = ({history}) => {
                 className="search-button"
                 onClick={() => {
                   if (input) {
-                    return setSearch(input)
+                    setSearch(input)
                   }
                 }}
               >
@@ -122,7 +122,7 @@ const Navbar = ({history}) => {
                     className="search-button"
                     onClick={() => {
                       if (input) {
-                        return setSearch(input)
+                        setSearch(input)
                       }
                     }}
                   >

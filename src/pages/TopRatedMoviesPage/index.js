@@ -26,7 +26,15 @@ const TopRatedMoviesPage = () => {
       <h1>Top Rated</h1>
       <ul className="movie-content">
         {data[0].results.map(movie => (
-          <MovieCard key={movie.id} movieDetails={movie} />
+          <MovieCard
+            key={movie.id}
+            movieDetails={{
+              id: movie.id,
+              posterPath: movie.poster_path,
+              title: movie.title,
+              voteAvg: movie.vote_average,
+            }}
+          />
         ))}
       </ul>
       <Pagination

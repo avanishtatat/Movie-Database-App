@@ -21,8 +21,22 @@ const MovieDetailsPage = ({match}) => {
   if (error) {
     return <p>Error : {error}</p>
   }
-  const movieDetails = data[0]
-  const castDetails = data[1]
+  const movieDetails = {
+    posterPath: data[0].poster_path,
+    title: data[0].title,
+    voteAvg: data[0].vote_average,
+    genres: data[0].genres,
+    runtime: data[0].runtime,
+    releaseDate: data[0].release_date,
+    overview: data[0].overview,
+  }
+
+  const castList = data[1].cast.map(each => ({
+    castId: each.cast_id,
+    profilePath: each.profile_path,
+    originalName: each.original_name,
+    character: each.character,
+  }))
   // console.log('Movie Details =>', movieDetails)
   // console.log('Cast Details =>', castDetails)
   // console.log('Window Obj', window)
@@ -31,14 +45,14 @@ const MovieDetailsPage = ({match}) => {
     <div className="movie-details-container">
       <div className="movie-details">
         <img
-          src={`https://image.tmdb.org/t/p/original/${movieDetails.poster_path}`}
+          src={`https://image.tmdb.org/t/p/original/${movieDetails.posterPath}`}
           alt={movieDetails.title}
           className="movie-details-poster-img"
         />
         <div className="movie-details-content">
           <div className="movie-head">
             <h1 className="movie-title">{movieDetails.title}</h1>
-            <p>Rating ⭐ {movieDetails.vote_average.toFixed(1)}</p>
+            <p>Rating ⭐ {movieDetails.voteAvg.toFixed(1)}</p>
           </div>
           <p>
             <b>Genre : </b>
@@ -51,7 +65,7 @@ const MovieDetailsPage = ({match}) => {
             }m`}
           </p>
           <p>
-            <b>Release Date :</b> {movieDetails.release_date}
+            <b>Release Date :</b> {movieDetails.releaseDate}
           </p>
           <p className="overview">
             <b>Overview :</b> {movieDetails.overview}
@@ -68,8 +82,8 @@ const MovieDetailsPage = ({match}) => {
       <div className="cast-details">
         <h2>Cast</h2>
         <ul className="cast-list-container">
-          {castDetails.cast.map(cast => (
-            <CastCard key={cast.cast_id} cast={cast} />
+          {castList.map(cast => (
+            <CastCard key={cast.castId} cast={cast} />
           ))}
         </ul>
       </div>
